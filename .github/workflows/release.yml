@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository
@@ -19,6 +19,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
+        run: |
+          echo "version=${GITHUB_REF##*/}" >> build.gradle.kts
 
       # Build the project and package the JAR
       - name: Build with Gradle
