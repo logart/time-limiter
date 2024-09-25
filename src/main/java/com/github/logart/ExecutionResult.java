@@ -6,6 +6,6 @@ import lombok.Value;
 public class ExecutionResult<T> {
     private final T result;
     private final Throwable error;
-    private final boolean isError;
-    private final boolean isTimeout;
+    private final boolean failed;
+    private final boolean timedOut;
 }
