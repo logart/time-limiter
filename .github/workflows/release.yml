@@ -39,4 +39,5 @@ jobs:
       # Notify if the release was successfully created
       - name: Release Created
         if: steps.upload-release.outputs.html_url != ''
-        run: echo "Release created at: ${{ steps.upload-release.outputs.html_url }}"
+        run:
+          - echo "Release created at: ${{ steps.upload-release.outputs.html_url }}"
