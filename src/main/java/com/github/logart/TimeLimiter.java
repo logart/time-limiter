@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.util.concurrent.*;
 
 @Slf4j
-public class RedirectBuilder {
+public class TimeLimiter implements AutoCloseable {
     private final ExecutorService timeLimiter = Executors.newCachedThreadPool();
 
     public <T> ExecutionResult<T> executeWithTimeLimit(Callable<T> timeLimitedFunction, Duration timeLimit) {
@@ -21,5 +21,10 @@ public class RedirectBuilder {
             return new ExecutionResult<>(null, e, true, true);
         }
         return new ExecutionResult<>(result, null, false, false);
+    }
+
+    @Override
+    public void close() throws Exception {
+        timeLimiter.shutdown();
     }
 }
