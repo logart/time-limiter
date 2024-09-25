@@ -41,4 +41,5 @@ jobs:
         if: steps.upload-release.outputs.html_url != ''
         env:
           HTML_URL: ${{ steps.upload-release.outputs.html_url }}
-        run: echo "Release created at: $HTML_URL"
+        run: |
+          echo "Release created at: $HTML_URL"
