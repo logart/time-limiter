@@ -1,5 +1,6 @@
 plugins {
     id("java")
+  id("io.freefair.lombok") version "8.10"
 }
 
 group = "com.github.logart"
