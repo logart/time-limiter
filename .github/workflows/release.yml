@@ -23,7 +23,7 @@ jobs:
       # Override version from git tag
       - name: Patch version
         run: |
-          echo "\n\nversion=${GITHUB_REF##*/}" >> build.gradle.kts
+          echo "\n\nversion = "'"'${GITHUB_REF##*/}'"' >> build.gradle.kts                                                                               ✔  11:11:34  
 
       # Build the project and package the JAR
       - name: Build with Gradle
